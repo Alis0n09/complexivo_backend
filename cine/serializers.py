@@ -4,10 +4,10 @@ from .models import Show, Reservation
 class ShowSerializer(serializers.ModelSerializer):
     class Meta:
         model = Show
-        fields = ["id", "movie_title", "room", "mprice", "available_seats"]
+        fields = ["id", "movie_title", "room", "price", "available_seats"]
 
 class ReservationSerializer(serializers.ModelSerializer):
-    show_title = serializers.CharField(source="show.movie_title", read_only=True)
+    show_movie_title = serializers.CharField(source="show.movie_title", read_only=True)
 
     class Meta:
         model = Reservation
